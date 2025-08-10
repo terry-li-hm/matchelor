@@ -1,0 +1,131 @@
+{
+  "scenarios": [
+    {
+      "id": "mixed_language_complaint",
+      "input": "我上個月already交咗錢but your system還係話我overdue，呢個係咩一回事？",
+      "expected_intent": "payment_dispute_escalation",
+      "traditional_nlp_result": "payment_inquiry",
+      "complexity": "code_switching",
+      "notes": "Mixes Cantonese, English, and Mandarin; emotional context indicates escalation"
+    },
+    {
+      "id": "indirect_frustration",
+      "input": "唔好意思，我知你哋好忙，不過我打咗三次都係同樣問題，係咪可以幫我transfer畀supervisor?",
+      "expected_intent": "escalation_to_supervisor",
+      "traditional_nlp_result": "general_inquiry",
+      "complexity": "cultural_politeness",
+      "notes": "Polite Cantonese masking frustration - typical HK indirect communication"
+    },
+    {
+      "id": "elderly_traditional_terms",
+      "input": "我想問下你哋而家仲有冇做定期存摺同埋銀行本簿",
+      "expected_intent": "passbook_fixed_deposit_inquiry",
+      "traditional_nlp_result": "unknown_intent",
+      "complexity": "traditional_banking_terms",
+      "notes": "Older generation using outdated Cantonese banking terminology"
+    },
+    {
+      "id": "complex_mortgage_switch",
+      "input": "我係想由P按轉H按，但係想知如果HIBOR升到好高我可唔可以cap到prime rate",
+      "expected_intent": "mortgage_refinance_hibor_prime",
+      "traditional_nlp_result": "mortgage_general",
+      "complexity": "technical_mixed_language",
+      "notes": "Technical mortgage terms mixing English abbreviations with Cantonese"
+    },
+    {
+      "id": "implicit_bereavement",
+      "input": "我爸爸上個月過咗身，我需要處理佢個戶口",
+      "expected_intent": "deceased_account_services",
+      "traditional_nlp_result": "account_inquiry",
+      "complexity": "implicit_sensitive_context",
+      "notes": "Requires understanding of sensitive context beyond keywords"
+    },
+    {
+      "id": "mainland_vs_hk_terms",
+      "input": "我要办理一个储蓄卡，不是信用卡，就是普通的提款卡",
+      "expected_intent": "debit_card_application",
+      "traditional_nlp_result": "savings_account",
+      "complexity": "regional_terminology",
+      "notes": "Mainland Mandarin terminology differs from HK usage"
+    },
+    {
+      "id": "investment_code_switch",
+      "input": "我想買美股，你哋有冇得做margin trading，同埋spread係點計",
+      "expected_intent": "securities_margin_trading",
+      "traditional_nlp_result": "investment_general",
+      "complexity": "investment_jargon_mixing",
+      "notes": "Investment terms requiring financial context understanding"
+    },
+    {
+      "id": "frustrated_multiple_issues",
+      "input": "First你哋block咗我張卡，跟住ATM又食咗我張卡，而家我連online banking都入唔到，到底發生咩事",
+      "expected_intent": "security_lockout_escalation",
+      "traditional_nlp_result": "card_issue",
+      "complexity": "multiple_cascading_issues",
+      "notes": "Multiple related problems indicating potential security issue"
+    },
+    {
+      "id": "family_wealth_planning",
+      "input": "我想問下如果開family trust同埋點樣可以幫仔女喺海外置業",
+      "expected_intent": "wealth_management_trust_services",
+      "traditional_nlp_result": "account_opening",
+      "complexity": "high_net_worth_services",
+      "notes": "Wealth management requiring specialized routing"
+    },
+    {
+      "id": "regulatory_concern",
+      "input": "你哋有冇收到金管局關於virtual asset嘅新guidelines，我嘅crypto transaction會唔會受影響",
+      "expected_intent": "regulatory_compliance_crypto",
+      "traditional_nlp_result": "general_inquiry",
+      "complexity": "regulatory_awareness",
+      "notes": "Requires understanding of HKMA regulations and crypto context"
+    },
+    {
+      "id": "cross_border_implicit",
+      "input": "我每個月都要匯錢返大陸畀屋企人，最近個limit好似有變",
+      "expected_intent": "remittance_limit_mainland",
+      "traditional_nlp_result": "transfer_inquiry",
+      "complexity": "cross_border_context",
+      "notes": "Mainland remittance has specific regulations and limits"
+    },
+    {
+      "id": "insurance_investment_mix",
+      "input": "我買咗你哋個ILAS但係而家想surrender，會唔會好大損失",
+      "expected_intent": "investment_linked_insurance_surrender",
+      "traditional_nlp_result": "insurance_inquiry",
+      "complexity": "product_specific_knowledge",
+      "notes": "Investment-linked assurance scheme requires specialist knowledge"
+    },
+    {
+      "id": "sme_urgent_facility",
+      "input": "我間公司急需要增加個overdraft facility，下個禮拜要出糧",
+      "expected_intent": "sme_emergency_credit_facility",
+      "traditional_nlp_result": "business_banking",
+      "complexity": "urgency_context",
+      "notes": "SME urgent request needs priority routing"
+    },
+    {
+      "id": "elderly_scam_concern",
+      "input": "有人打電話嚟話係你哋銀行叫我轉錢，我想check下係咪真",
+      "expected_intent": "fraud_verification_urgent",
+      "traditional_nlp_result": "general_inquiry",
+      "complexity": "scam_detection",
+      "notes": "Potential scam in progress needs immediate fraud team"
+    },
+    {
+      "id": "mpf_job_change",
+      "input": "我轉咗工，想問下我個MPF點樣由舊公司個scheme轉過嚟你哋度",
+      "expected_intent": "mpf_consolidation",
+      "traditional_nlp_result": "retirement_planning",
+      "complexity": "mandatory_provident_fund",
+      "notes": "MPF consolidation is a specific regulated process"
+    }
+  ],
+  "test_configuration": {
+    "traditional_nlp_accuracy": "40%",
+    "expected_llm_accuracy": "90%+",
+    "average_misroute_cost_hkd": 45,
+    "daily_complex_calls": 850,
+    "potential_daily_savings_hkd": 15300
+  }
+}
